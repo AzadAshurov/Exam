@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+@using ExamProject.ViewModels
+@model LoginVM
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-description">
+              Sign in
+            </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label asp-for="UserNameOrEmail" for="exampleInputUsername1">Name</label>
+                    <input asp-for="UserNameOrEmail" type="text" class="form-control"  placeholder="UserNameOrEmail">
+                    <span asp-validation-for="UserNameOrEmail"> </span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" for="exampleInputUsername1">Password</label>
+                    <input asp-for="Password" as type="text" class="form-control"  placeholder="Password">
+                    <span asp-validation-for="Password"> </span>
+                </div>       
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

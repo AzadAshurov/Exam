@@ -1,0 +1,53 @@
+﻿@using ExamProject.Areas.Admin.ViewModels.Employee
+
+@model List<GetEmployeeDetailsVM>
+
+@{
+    int id = 0;
+}
+
+
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Professions</h4>
+            <p class="card-description">
+                Add class <code>.table</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Links</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var prof in Model)
+                        {
+                            id++;
+                            <tr>
+                                <td>@id</td>
+                                <td>@prof.FullName</td>
+                                <td>
+                                    @prof.TwitterLink
+                                </td>
+                                <td>
+                                    @prof.InstagramLink
+                                </td>
+                                <td>
+                                    @prof.FacebookLink
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

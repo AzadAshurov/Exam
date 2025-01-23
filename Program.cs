@@ -1,3 +1,8 @@
+using ExamProject.DAL;
+using ExamProject.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace ExamProject
 {
     public class Program
@@ -8,7 +13,16 @@ namespace ExamProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+            builder.Services.AddIdentity<AppUser, IdentityRole>(opt => { 
+            opt.User.RequireUniqueEmail = true;
+                opt.Password.RequiredLength = 10;
+            
+              opt.Lockout.AllowedForNewUsers = true;
+                opt.Lockout.MaxFailedAccessAttempts = 3;
+                opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(20);
+            }
+             ).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -25,6 +39,10 @@ namespace ExamProject
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthorization();
+            app.MapControllerRoute(
+            name: "admin",
+            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
                 name: "default",
@@ -34,3 +52,4 @@ namespace ExamProject
         }
     }
 }
+//log register view

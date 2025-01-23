@@ -1,0 +1,46 @@
+﻿@using ExamProject.Areas.Admin.ViewModels.Employee
+
+@model CreateEmployeeVM
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Default form</h4>
+            <p class="card-description">
+                Create Profession
+            </p>
+            <form class="forms-sample" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <label asp-for="FullName" for="exampleInputUsername1">Name</label>
+                    <input asp-for="FullName" type="text" class="form-control"  placeholder="Name">
+                    <span asp-validation-for="FullName"> </span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TwitterLink" for="exampleInputUsername1">TwitterLink</label>
+                    <input asp-for="TwitterLink" as type="text" class="form-control"  placeholder="Twitter Link">
+                    <span asp-validation-for="TwitterLink"> </span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="InstagramLink" for="exampleInputUsername1">InstagramLink</label>
+                    <input asp-for="InstagramLink" as type="text" class="form-control"  placeholder="Instagram Link">
+                    <span asp-validation-for="InstagramLink"> </span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FacebookLink" for="exampleInputUsername1">TwitterLink</label>
+                    <input asp-for="FacebookLink" as type="text" class="form-control"  placeholder="Facebook Link">
+                    <span asp-validation-for="FacebookLink"> </span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Image" for="exampleInputUsername1">Image</label>
+                    <input asp-for="Image" as type="text" class="form-control"  placeholder="Image" type="file">
+                    <span asp-validation-for="Image"> </span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
